@@ -18,5 +18,6 @@
       "pubsub",
       "appsync",
       "websocket"
-  ]
+  ],
+  "repository": "https://github.com/simon1389/aws-pubsub"
 }

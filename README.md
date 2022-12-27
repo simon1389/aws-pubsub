@@ -11,14 +11,14 @@ To use this library you need a AWSAppSync Realtime API endpoint with an
 valid API-Key.
 In your AWS Account just switch to AppSync service and create such an API:
 
-![](desc1.png)
+![](https://raw.githubusercontent.com/simon1389/aws-pubsub/master/desc1.png)
 
-![](desc2.png)
+![](https://raw.githubusercontent.com/simon1389/aws-pubsub/master/desc2.png)
 
 After creating you need the endpoint URL and you have to create an API-Key.
 You need that information to call the `configure` method of the lib.
 
-![](desc3.png)
+![](https://raw.githubusercontent.com/simon1389/aws-pubsub/master/desc3.png)
 
 ## Usage
 ```
