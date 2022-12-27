@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+      "module": "CommonJS",
+    "declaration": true,
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*"],
+}
