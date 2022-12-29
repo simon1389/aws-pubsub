@@ -1,6 +1,6 @@
 {
   "name": "aws-pubsub",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Small lib to use AWS Realtime API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
