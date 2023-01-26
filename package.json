@@ -1,6 +1,6 @@
 {
   "name": "aws-pubsub",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Small lib to use AWS Realtime API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,9 @@
       "realtime",
       "pubsub",
       "appsync",
-      "websocket"
+      "websocket",
+      "aws",
+      "typescript"
   ],
   "repository": "https://github.com/simon1389/aws-pubsub"
 }
