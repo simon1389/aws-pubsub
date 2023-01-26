@@ -3,6 +3,9 @@ import { API, graphqlOperation } from '@aws-amplify/api';
 
 let gotConfigured = false;
 
+//Used as prefix for every subscribe/publish call to be able to distinguish between i.e. environments
+let PREFIX = '';
+
 const subscribeDoc = /* GraphQL */ `
     subscription Subscribe($name: String!) {
         subscribe(name: $name) {
@@ -30,7 +33,7 @@ export async function publish(name: string, data: unknown) {
         throw new Error('Publishing without configuration. Please call "configure" first')
     }
 
-    return API.graphql(graphqlOperation(publishDoc, {name, data}));
+    return API.graphql(graphqlOperation(publishDoc, {name: PREFIX + name, data}));
 }
 
 /**
@@ -46,7 +49,7 @@ export function subscribe(name: string, next: (data: unknown, provider?: unknown
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    return API.graphql(graphqlOperation(subscribeDoc, { name })).subscribe({
+    return API.graphql(graphqlOperation(subscribeDoc, { name: PREFIX + name })).subscribe({
         next: ({ provider, value }) => {
             next(value.data.subscribe, provider, value);
         },
@@ -62,8 +65,11 @@ export function configure(config: {
     aws_appsync_region: string,
     aws_appsync_authenticationType: string,
     aws_appsync_apiKey: string,
-}) {
+}, prefix?:string) {
     API.configure(config);
+    if (prefix) {
+        PREFIX = prefix;
+    }
     gotConfigured = true;
 }
 
